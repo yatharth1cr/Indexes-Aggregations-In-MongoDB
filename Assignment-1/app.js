@@ -1,7 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var logger = require("morgan");
-var path = require("path"); // Added this line
+var path = require("path");
 
 // connect mongoDB
 mongoose
