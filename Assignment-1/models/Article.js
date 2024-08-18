@@ -6,3 +6,10 @@ var articleSchema = new Schema({
   description: { type: String },
   tags: [String],
 });
+
+// creating indexes
+articleSchema.index({ tags: 1 });
+articleSchema.index({ title: "text" }, { description: "text" });
+
+// exports
+module.exports = mongoose.model("Article", articleSchema);
