@@ -19,30 +19,9 @@ var userSchema = new Schema(
 // Indexes
 userSchema.index({ email: 1 }, { unique: true });
 userSchema.index({ username: 1 }, { unique: true });
-userSchema.index({ state: 1, country: 1 }); // Compound index
+userSchema.index({ "address.state": 1, "address.country": 1 }); //Compound index
 
 var User = mongoose.model("User", userSchema);
-
-// Sample user creation
-var sampleUser = new User({
-  name: "John Doe",
-  username: "johndoe",
-  email: "johndoe@example.com",
-  address: {
-    city: "Sample City",
-    state: "Sample State",
-    country: "Sample Country",
-    pin: 12345,
-  },
-});
-// Save the sample user to the database
-sampleUser.save((err) => {
-  if (err) {
-    console.error("Error saving the user:", err);
-  } else {
-    console.log("User saved successfully");
-  }
-});
 
 // Export the User model
 module.exports = User;
