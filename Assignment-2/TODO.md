@@ -332,6 +332,18 @@ green -> 123
 ```
 
 18. Find the sum of ages of all males and females.
+
+```js
+[
+  {
+    $group: {
+      _id: "$gender",
+      totalAge: { $sum: "$age" },
+    },
+  },
+];
+```
+
 19. Group all males by their eyeColor.
 
 ```js
